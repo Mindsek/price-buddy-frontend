@@ -14,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Provider>{children}</Provider>
+        <Provider>
+          <main className="flex-1">{children}</main>
+        </Provider>
       </body>
     </html>
   );
