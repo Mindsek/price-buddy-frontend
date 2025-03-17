@@ -1,19 +1,23 @@
+// app/dashboard/page.tsx
 import { AppSidebar } from "@/components/layout/sidebar/app-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-
+import { auth } from "@/lib/auth";
+import { Session } from "next-auth";
 export default async function Dashboard() {
+  const session = await auth();
+
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar session={session as Session} />
       <SidebarInset>
-        <main className="">
+        <div className="">
           <SidebarTrigger />
           test
-        </main>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
