@@ -1,6 +1,11 @@
 "use client";
 
-import { Command, SquareTerminal } from "lucide-react";
+import {
+  Command,
+  ShoppingCartIcon,
+  SquareTerminal,
+  StoreIcon,
+} from "lucide-react";
 import * as React from "react";
 
 import { NavMain } from "@/components/layout/sidebar/nav-main";
@@ -22,17 +27,16 @@ const data = {
       title: "Accueil",
       url: "/dashboard",
       icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "Produits",
-          url: "/products",
-        },
-        {
-          title: "Supermarchés",
-          url: "/supermarkets",
-        },
-      ],
+    },
+    {
+      title: "Produits",
+      url: "/products",
+      icon: ShoppingCartIcon,
+    },
+    {
+      title: "Supermarchés",
+      url: "/supermarkets",
+      icon: StoreIcon,
     },
   ],
 };

@@ -1,14 +1,10 @@
-import { handleLogoutAction } from "@/app/api/auth/logout/logout";
 import { LogOut } from "lucide-react";
-
+import { signOut } from "next-auth/react";
 export const SignOutButton = () => {
   return (
-    <button
-      className="flex items-center gap-2"
-      onClick={() => handleLogoutAction()}
-    >
+    <button className="flex items-center gap-2" onClick={() => signOut()}>
       <LogOut />
-      <span>Sign Out</span>
+      <span>Se déconnecter</span>
     </button>
   );
 };

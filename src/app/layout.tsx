@@ -27,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="en" className="h-full dark" suppressHydrationWarning>
+      <body suppressHydrationWarning className="h-full">
         <NextAuthProvider>
           <main className="flex-1">{children}</main>
         </NextAuthProvider>

@@ -1,4 +1,3 @@
-// app/dashboard/page.tsx
 import { AppSidebar } from "@/components/layout/sidebar/app-sidebar";
 import {
   SidebarInset,
@@ -7,16 +6,22 @@ import {
 } from "@/components/ui/sidebar";
 import { auth } from "@/lib/auth";
 import { Session } from "next-auth";
-export default async function Dashboard() {
+import { redirect } from "next/navigation";
+import { ReactNode } from "react";
+
+export default async function AppLayout({ children }: { children: ReactNode }) {
   const session = await auth();
+  if (!session) {
+    redirect("/signin");
+  }
 
   return (
     <SidebarProvider>
       <AppSidebar session={session as Session} />
       <SidebarInset>
-        <div className="">
+        <div className="flex-1 overflow-hidden">
           <SidebarTrigger />
-          test
+          {children}
         </div>
       </SidebarInset>
     </SidebarProvider>
