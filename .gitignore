@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pwa
+.next/cache/
+.next/swc/
+.next/swc/
+.next/swc/
+.next/swc/
+
+# remove public/sw.js
+public/sw.js
+
