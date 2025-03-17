@@ -1,15 +1,17 @@
+import { auth } from "@/lib/auth";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const token = request.cookies.get("authjs.session-token");
-  const isAuthPage = request.nextUrl.pathname.startsWith("/signin");
+export async function middleware(request: NextRequest) {
+  const session = await auth();
 
-  if (!token && !isAuthPage) {
-    return NextResponse.redirect(new URL("/signin", request.url));
+  // Si pas de session et pas sur la page de login, rediriger vers /login
+  if (!session && !request.nextUrl.pathname.startsWith("/login")) {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  if (token && isAuthPage) {
+  // Si session et sur la page de login, rediriger vers /dashboard
+  if (session && request.nextUrl.pathname.startsWith("/login")) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
@@ -17,5 +19,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/profile/:path*", "/signin/:path*"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
