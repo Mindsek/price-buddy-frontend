@@ -16,15 +16,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Supermarket } from "@/types/price-buddy";
 import { MapPin, MoreHorizontal, Store } from "lucide-react";
-
-type Supermarket = {
-  id: string;
-  name: string;
-  address: string;
-  productsCount: number;
-  bestDeals: string[];
-};
 
 type SupermarketListProps = {
   supermarkets: Supermarket[];
