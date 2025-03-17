@@ -1,6 +1,6 @@
 "use client";
 
-import { Command, SquareTerminal } from "lucide-react";
+import { ShoppingCartIcon, SquareTerminal, StoreIcon } from "lucide-react";
 import * as React from "react";
 
 import { NavMain } from "@/components/layout/sidebar/nav-main";
@@ -15,6 +15,8 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Session } from "next-auth";
+import Image from "next/image";
+import Link from "next/link";
 
 const data = {
   navMain: [
@@ -22,17 +24,16 @@ const data = {
       title: "Accueil",
       url: "/dashboard",
       icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "Produits",
-          url: "/products",
-        },
-        {
-          title: "Supermarchés",
-          url: "/supermarkets",
-        },
-      ],
+    },
+    {
+      title: "Produits",
+      url: "/products",
+      icon: ShoppingCartIcon,
+    },
+    {
+      title: "Supermarchés",
+      url: "/supermarkets",
+      icon: StoreIcon,
     },
   ],
 };
@@ -47,15 +48,18 @@ export function AppSidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
-                </div>
+              <Link href="/dashboard">
+                <Image
+                  src="/icons/ic_price_buddy_192.png"
+                  alt="Price Buddy"
+                  width={32}
+                  height={32}
+                  className="rounded-lg"
+                />
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-medium">Price Buddy</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

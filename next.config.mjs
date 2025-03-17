@@ -7,7 +7,12 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV !== "development",
   },
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+    ],
   },
 };
 
