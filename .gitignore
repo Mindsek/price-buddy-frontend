@@ -47,6 +47,6 @@ next-env.d.ts
 .next/swc/
 .next/swc/
 
-# remove public/sw.js
-public/sw.js
-
+**/public/workbox-*.js
+**/public/sw.js
+**/public/worker-*.js
