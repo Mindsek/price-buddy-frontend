@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
@@ -7,12 +8,12 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen justify-center items-center flex-col">
-      Hello
+      Hello {session?.user?.name}
       <div>
         {session?.user?.name ? (
-          <button onClick={() => signOut()}>Se déconnecter</button>
+          <Button onClick={() => signOut()}>Se déconnecter</Button>
         ) : (
-          <button onClick={() => signIn("github")}>Se connecter</button>
+          <Button onClick={() => signIn("github")}>Se connecter</Button>
         )}
       </div>
     </div>
