@@ -4,12 +4,12 @@ import { deleteSupermarket } from "@/app/actions/supermarkets";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Supermarket } from "@/types/price-buddy";
 import { Plus, Search } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { AddSupermarketDialog } from "./add-supermarket-dialog";
 import { SupermarketList } from "./supermarket-list";
-import { Supermarket } from "@/types/price-buddy";
 
 export default function SupermarketsPage({
   supermarkets,
@@ -22,7 +22,7 @@ export default function SupermarketsPage({
   const filteredSupermarkets = supermarkets.filter((supermarket) => {
     return (
       supermarket.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      supermarket.address.toLowerCase().includes(searchTerm.toLowerCase())
+      supermarket.address?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 

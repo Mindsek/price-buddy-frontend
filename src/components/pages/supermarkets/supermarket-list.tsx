@@ -65,7 +65,8 @@ export function SupermarketList({
                 <TableCell>{supermarket.productsCount}</TableCell>
                 <TableCell>
                   <div className="flex flex-wrap gap-1">
-                    {supermarket.bestDeals.length > 0 ? (
+                    {supermarket.bestDeals?.length &&
+                    supermarket.bestDeals.length > 0 ? (
                       supermarket.bestDeals.map((deal, index) => (
                         <Badge key={index} variant="outline">
                           {deal}
