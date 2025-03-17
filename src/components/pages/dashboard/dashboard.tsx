@@ -19,7 +19,7 @@ export default function DashboardPage({ data }: DashboardPageProps) {
       </div>
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="overview">Vue d'ensemble</TabsTrigger>
+          <TabsTrigger value="overview">Vue d&apos;ensemble</TabsTrigger>
           <TabsTrigger value="analytics">Analytiques</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="space-y-4">

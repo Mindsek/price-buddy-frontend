@@ -40,6 +40,7 @@ export default function ProductsPage({
       setIsAddProductOpen(false);
       toast.success("Produit ajouté avec succès");
     } catch (error) {
+      console.error(error);
       toast.error("Erreur lors de l'ajout du produit");
     }
   };
@@ -79,6 +80,7 @@ export default function ProductsPage({
       setSelectedProduct(null);
       toast.success("Prix ajouté avec succès");
     } catch (error) {
+      console.error(error);
       toast.error("Erreur lors de l'ajout du prix");
     }
   };
